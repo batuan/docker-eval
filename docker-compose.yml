@@ -1,0 +1,43 @@
+version: "3.9"
+services:
+  fast_api:
+    image: datascientest/fastapi:1.0.0
+    network_mode: "host"
+    
+  test_authentication:
+    build: ./
+    container_name: test_authentication
+    network_mode: "host"
+    command: bash -c "sleep 1 && pwd && ls && python3 test_authentication.py"
+    depends_on:
+      - fast_api
+    volumes:
+      - ./python_script:/script
+    environment:
+      - LOG=1
+
+  test_authorization:
+    build: ./
+    container_name: test_authorization
+    network_mode: "host"
+    command: bash -c "sleep 3 && pwd && ls && python3 test_authorization.py"
+    depends_on:
+      - fast_api
+      - test_authentication
+    volumes:
+      - ./python_script:/script
+    environment:
+      - LOG=1
+  
+  test_content:
+    build: ./
+    container_name: test_content
+    network_mode: "host"
+    command: bash -c "sleep 5 && pwd && ls && python3 test_content.py"
+    depends_on:
+      - fast_api
+      - test_authorization
+    volumes:
+      - ./python_script:/script
+    environment:
+      - LOG=1

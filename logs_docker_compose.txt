@@ -1,0 +1,225 @@
+Attaching to test_content, test_authorization, test_authentication, exam_docker_fast_api_1
+fast_api_1             | INFO:     Started server process [11]
+fast_api_1             | INFO:     Waiting for application startup.
+fast_api_1             | INFO:     Application startup complete.
+fast_api_1             | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+fast_api_1             | INFO:     127.0.0.1:35704 - "GET /permissions?username=alice&password=wonderland HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35708 - "GET /permissions?username=bob&password=builder HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35716 - "GET /permissions?username=clementine&password=mandarine HTTP/1.1" 403 Forbidden
+fast_api_1             | INFO:     127.0.0.1:35720 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=test HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35724 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=test HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35734 - "GET /v1/sentiment?username=bob&password=builder&sentence=test HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35744 - "GET /v2/sentiment?username=bob&password=builder&sentence=test HTTP/1.1" 403 Forbidden
+fast_api_1             | INFO:     127.0.0.1:35748 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35764 - "GET /v1/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35774 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=life+is+beautiful HTTP/1.1" 200 OK
+fast_api_1             | INFO:     127.0.0.1:35788 - "GET /v2/sentiment?username=alice&password=wonderland&sentence=that+sucks HTTP/1.1" 200 OK
+test_authentication    | /script
+test_authentication    | log.txt
+test_authentication    | test_authentication.py
+test_authentication    | test_authorization.py
+test_authentication    | test_content.py
+test_authentication    | 
+test_authentication    | ============================
+test_authentication    |     Authentication test
+test_authentication    | ============================
+test_authentication    | 
+test_authentication    | request done at "/permissions"
+test_authentication    | | username=alice
+test_authentication    | | password=wonderland
+test_authentication    | 
+test_authentication    | expected result = 200
+test_authentication    | actual restult = 200
+test_authentication    | 
+test_authentication    | ==>  SUCCESS
+test_authentication    | 
+test_authentication    | 
+test_authentication    | 1
+test_authentication    | write to file
+test_authentication    | =================================================
+test_authentication    | 
+test_authentication    | ============================
+test_authentication    |     Authentication test
+test_authentication    | ============================
+test_authentication    | 
+test_authentication    | request done at "/permissions"
+test_authentication    | | username=bob
+test_authentication    | | password=builder
+test_authentication    | 
+test_authentication    | expected result = 200
+test_authentication    | actual restult = 200
+test_authentication    | 
+test_authentication    | ==>  SUCCESS
+test_authentication    | 
+test_authentication    | 
+test_authentication    | 1
+test_authentication    | write to file
+test_authentication    | =================================================
+test_authentication    | 
+test_authentication    | ============================
+test_authentication    |     Authentication test
+test_authentication    | ============================
+test_authentication    | 
+test_authentication    | request done at "/permissions"
+test_authentication    | | username=clementine
+test_authentication    | | password=mandarine
+test_authentication    | 
+test_authentication    | expected result = 403
+test_authentication    | actual restult = 403
+test_authentication    | 
+test_authentication    | ==>  SUCCESS
+test_authentication    | 
+test_authentication    | 
+test_authentication    | 1
+test_authentication    | write to file
+test_authentication    | =================================================
+test_content           | /script
+test_content           | log.txt
+test_content           | test_authentication.py
+test_content           | test_authorization.py
+test_content           | test_content.py
+test_content           | 
+test_content           | ============================
+test_content           |     Content test
+test_content           | ============================
+test_content           | 
+test_content           | request done at "/v1/sentiment"
+test_content           | | username="alice"
+test_content           | | password="wonderland"
+test_content           | | sentence="life is beautiful"
+test_content           | 
+test_content           | expected sentence positive
+test_content           | actual restult = positive
+test_content           | 
+test_content           | ==>  SUCCESS
+test_content           | 
+test_content           | 
+test_content           | write to file
+test_content           | =================================================
+test_content           | 
+test_content           | ============================
+test_content           |     Content test
+test_content           | ============================
+test_content           | 
+test_content           | request done at "/v1/sentiment"
+test_content           | | username="alice"
+test_content           | | password="wonderland"
+test_content           | | sentence="that sucks"
+test_content           | 
+test_content           | expected sentence negative
+test_content           | actual restult = negative
+test_content           | 
+test_content           | ==>  SUCCESS
+test_content           | 
+test_content           | 
+test_content           | write to file
+test_content           | =================================================
+test_content           | 
+test_content           | ============================
+test_content           |     Content test
+test_content           | ============================
+test_content           | 
+test_content           | request done at "/v2/sentiment"
+test_content           | | username="alice"
+test_content           | | password="wonderland"
+test_content           | | sentence="life is beautiful"
+test_content           | 
+test_content           | expected sentence positive
+test_content           | actual restult = positive
+test_content           | 
+test_content           | ==>  SUCCESS
+test_content           | 
+test_content           | 
+test_content           | write to file
+test_content           | =================================================
+test_content           | 
+test_content           | ============================
+test_content           |     Content test
+test_content           | ============================
+test_content           | 
+test_content           | request done at "/v2/sentiment"
+test_content           | | username="alice"
+test_content           | | password="wonderland"
+test_content           | | sentence="that sucks"
+test_content           | 
+test_content           | expected sentence negative
+test_content           | actual restult = negative
+test_content           | 
+test_content           | ==>  SUCCESS
+test_content           | 
+test_content           | 
+test_content           | write to file
+test_content           | =================================================
+test_authorization     | /script
+test_authorization     | log.txt
+test_authorization     | test_authentication.py
+test_authorization     | test_authorization.py
+test_authorization     | test_content.py
+test_authorization     | 
+test_authorization     | ============================
+test_authorization     |     Authorization test
+test_authorization     | ============================
+test_authorization     | 
+test_authorization     | request done at "/v1/sentiment"
+test_authorization     | | username="alice"
+test_authorization     | | password="wonderland"
+test_authorization     | 
+test_authorization     | expected authorization result = 200
+test_authorization     | actual restult = 200
+test_authorization     | 
+test_authorization     | ==>  SUCCESS
+test_authorization     | 
+test_authorization     | 
+test_authorization     | write to file
+test_authorization     | =================================================
+test_authorization     | 
+test_authorization     | ============================
+test_authorization     |     Authorization test
+test_authorization     | ============================
+test_authorization     | 
+test_authorization     | request done at "/v2/sentiment"
+test_authorization     | | username="alice"
+test_authorization     | | password="wonderland"
+test_authorization     | 
+test_authorization     | expected authorization result = 200
+test_authorization     | actual restult = 200
+test_authorization     | 
+test_authorization     | ==>  SUCCESS
+test_authorization     | 
+test_authorization     | 
+test_authorization     | write to file
+test_authorization     | =================================================
+test_authorization     | 
+test_authorization     | ============================
+test_authorization     |     Authorization test
+test_authorization     | ============================
+test_authorization     | 
+test_authorization     | request done at "/v1/sentiment"
+test_authorization     | | username="bob"
+test_authorization     | | password="builder"
+test_authorization     | 
+test_authorization     | expected authorization result = 200
+test_authorization     | actual restult = 200
+test_authorization     | 
+test_authorization     | ==>  SUCCESS
+test_authorization     | 
+test_authorization     | 
+test_authorization     | write to file
+test_authorization     | =================================================
+test_authorization     | 
+test_authorization     | ============================
+test_authorization     |     Authorization test
+test_authorization     | ============================
+test_authorization     | 
+test_authorization     | request done at "/v2/sentiment"
+test_authorization     | | username="bob"
+test_authorization     | | password="builder"
+test_authorization     | 
+test_authorization     | expected authorization result = 403
+test_authorization     | actual restult = 403
+test_authorization     | 
+test_authorization     | ==>  SUCCESS
+test_authorization     | 
+test_authorization     | 
+test_authorization     | write to file
+test_authorization     | =================================================

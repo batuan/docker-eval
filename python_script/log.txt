@@ -1,0 +1,158 @@
+TEST Time: 2023-05-17 12:06:37.330245
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username=alice
+| password=wonderland
+
+expected result = 200
+actual restult = 200
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:37.333440
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username=bob
+| password=builder
+
+expected result = 200
+actual restult = 200
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:37.336095
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username=clementine
+| password=mandarine
+
+expected result = 403
+actual restult = 403
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:39.545239
+============================
+    Authorization test
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+
+expected authorization result = 200
+actual restult = 200
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:39.548391
+============================
+    Authorization test
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+
+expected authorization result = 200
+actual restult = 200
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:39.551333
+============================
+    Authorization test
+============================
+
+request done at "/v1/sentiment"
+| username="bob"
+| password="builder"
+
+expected authorization result = 200
+actual restult = 200
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:39.554407
+============================
+    Authorization test
+============================
+
+request done at "/v2/sentiment"
+| username="bob"
+| password="builder"
+
+expected authorization result = 403
+actual restult = 403
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:41.741923
+============================
+    Content test
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="life is beautiful"
+
+expected sentence positive
+actual restult = positive
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:41.745750
+============================
+    Content test
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="that sucks"
+
+expected sentence negative
+actual restult = negative
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:41.749417
+============================
+    Content test
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="life is beautiful"
+
+expected sentence positive
+actual restult = positive
+
+==>  SUCCESS
+
+TEST Time: 2023-05-17 12:06:41.752933
+============================
+    Content test
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="that sucks"
+
+expected sentence negative
+actual restult = negative
+
+==>  SUCCESS
+
